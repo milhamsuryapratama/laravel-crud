@@ -18,6 +18,21 @@
     <br />
 
     <table border="1">
+        @if ($message = Session::get('sukses'))
+            <tr>
+                <td colspan="5"><p><i><strong>{{ $message }}</strong></i></p></td>
+            </tr>
+        @elseif ($message = Session::get('edit'))
+            <tr>
+                <td colspan="5"><p><i><strong>{{ $message }}</strong></i></p></td>
+            </tr>
+        @elseif ($message = Session::get('hapus'))
+            <tr>
+                <td colspan="5"><p><i><strong>{{ $message }}</strong></i></p></td>
+            </tr>
+        @endif
+
+
         <tr>
             <th>Nama</th>
             <th>Jabatan</th>
@@ -25,6 +40,7 @@
             <th>Alamat</th>
             <th>Opsi</th>
         </tr>
+
         @foreach($pegawai as $p)
         <tr>
             <td>{{ $p->pegawai_nama }}</td>

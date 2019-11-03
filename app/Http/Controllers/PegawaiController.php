@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\PegawaiModel;
+// use Session;
 
 class PegawaiController extends Controller
 {
@@ -38,7 +39,8 @@ class PegawaiController extends Controller
         //     'pegawai_alamat' => $request->alamat
         // ]);
 
-        return redirect('/pegawai');
+        // $request->session()->flash('sukses', 'Sukses menambah data');
+        return redirect('/pegawai')->with(['sukses' => 'Sukses menambah data']);
     }
 
     public function edit($id)
@@ -65,7 +67,7 @@ class PegawaiController extends Controller
         //     'pegawai_alamat' => $request->alamat
         // ]);
 
-        return redirect('/pegawai');
+        return redirect('/pegawai')->with(['edit' => 'Sukses memperbarui data']);
     }
 
     public function hapus($id)
@@ -73,6 +75,6 @@ class PegawaiController extends Controller
         // DB::table('pegawai')->where('pegawai_id', $id)->delete();
         $pegawai = PegawaiModel::where('pegawai_id', $id)->delete();
 
-        return redirect('/pegawai');
+        return redirect('/pegawai')->with(['hapus' => 'Sukses menghapus data']);
     }
 }
