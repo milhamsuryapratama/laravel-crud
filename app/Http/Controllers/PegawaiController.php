@@ -24,6 +24,14 @@ class PegawaiController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nama' => 'required',
+            'gender' => 'required',
+            'jabatan' => 'required',
+            'umur' => 'required',
+            'alamat' => 'required'
+        ]);
+
         PegawaiModel::create([
             'pegawai_nama' => $request->nama,
             'pegawai_jk' => $request->gender,
@@ -53,6 +61,14 @@ class PegawaiController extends Controller
 
     public function update(Request $request)
     {
+        $this->validate($request, [
+            'nama' => 'required',
+            'gender' => 'required',
+            'jabatan' => 'required',
+            'umur' => 'required',
+            'alamat' => 'required'
+        ]);
+
         $pegawai = PegawaiModel::find($request->id);
         $pegawai->pegawai_nama = $request->nama;
         $pegawai->pegawai_jk = $request->gender;
