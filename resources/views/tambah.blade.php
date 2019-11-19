@@ -20,6 +20,11 @@
         Nama <input type="text" name="nama" required="required"> <br/>
         Jenis Kelamin <br> <input type="radio" name="gender" value="L"> L<br>
         <input type="radio" name="gender" value="P"> P<br>
+        Jurusan <select name="jurusan">
+            @foreach ($jurusan as $j)
+                <option value="{{$j->jurusan_id}}">{{$j->jurusan_nama}}</option>
+            @endforeach
+        </select> <br/>
 		Jabatan <input type="text" name="jabatan" required="required"> <br/>
 		Umur <input type="number" name="umur" required="required"> <br/>
 		Alamat <textarea name="alamat" required="required"></textarea> <br/>
