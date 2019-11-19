@@ -40,7 +40,8 @@ class PegawaiController extends Controller
             'pegawai_jk' => $request->gender,
             'pegawai_jabatan' => $request->jabatan,
             'pegawai_umur' => $request->umur,
-            'pegawai_alamat' => $request->alamat
+            'pegawai_alamat' => $request->alamat,
+            'jurusan_id' => $request->jurusan
         ]);
         // DB::table('pegawai')->insert([
         //     'pegawai_nama' => $request->nama,
