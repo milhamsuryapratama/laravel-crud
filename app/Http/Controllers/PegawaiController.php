@@ -19,7 +19,9 @@ class PegawaiController extends Controller
 
     public function tambah()
     {
-        return view('tambah');
+        $jurusan = JurusanModel::all();
+
+        return view('tambah', ['jurusan' => $jurusan]);
     }
 
     public function store(Request $request)
