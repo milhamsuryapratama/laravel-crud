@@ -10,5 +10,5 @@ class PegawaiModel extends Model
     protected  $primaryKey = 'pegawai_id';
     protected $fillable = ['pegawai_nama','pegawai_jk','pegawai_jabatan','pegawai_umur','pegawai_alamat'];
     public $incrementing = false;
-    public $timestamps = false;
+    public $timestamps = true;
 }
