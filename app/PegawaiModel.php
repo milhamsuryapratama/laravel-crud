@@ -11,4 +11,9 @@ class PegawaiModel extends Model
     protected $fillable = ['pegawai_nama','pegawai_jk','pegawai_jabatan','pegawai_umur','pegawai_alamat','jurusan_id'];
     public $incrementing = false;
     public $timestamps = true;
+
+    public function jurusan()
+    {
+        return $this->hasOne('App\JurusanModel', 'jurusan_id');
+    }
 }
