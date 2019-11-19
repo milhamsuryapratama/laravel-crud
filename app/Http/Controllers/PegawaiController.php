@@ -31,7 +31,8 @@ class PegawaiController extends Controller
             'gender' => 'required',
             'jabatan' => 'required',
             'umur' => 'required',
-            'alamat' => 'required'
+            'alamat' => 'required',
+            'jurusan' => 'required'
         ]);
 
         PegawaiModel::create([
