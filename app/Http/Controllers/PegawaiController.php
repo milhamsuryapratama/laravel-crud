@@ -13,7 +13,7 @@ class PegawaiController extends Controller
 {
     public function index()
     {
-        $pegawai = PegawaiModel::all();
+        $pegawai = PegawaiModel::with('jurusan')->get();
 
         return view('index', ['pegawai' => $pegawai]);
     }
