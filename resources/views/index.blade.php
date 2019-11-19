@@ -1,61 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('template')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pegawai</title>
-</head>
+@section('konten')
+<h3>Data Pegawai</h3>
 
-<body>
+<a href="/pegawai/tambah"> + Tambah Pegawai Baru</a>
 
-    <h3>Data Pegawai</h3>
+<br />
+<br />
 
-    <a href="/pegawai/tambah"> + Tambah Pegawai Baru</a>
-
-    <br />
-    <br />
-
-    <table border="1">
-        @if ($message = Session::get('sukses'))
-            <tr>
-                <td colspan="5"><p><i><strong>{{ $message }}</strong></i></p></td>
-            </tr>
-        @elseif ($message = Session::get('edit'))
-            <tr>
-                <td colspan="5"><p><i><strong>{{ $message }}</strong></i></p></td>
-            </tr>
-        @elseif ($message = Session::get('hapus'))
-            <tr>
-                <td colspan="5"><p><i><strong>{{ $message }}</strong></i></p></td>
-            </tr>
-        @endif
-
-
+<table border="1">
+    @if ($message = Session::get('sukses'))
         <tr>
-            <th>Nama</th>
-            <th>Jabatan</th>
-            <th>Umur</th>
-            <th>Alamat</th>
-            <th>Opsi</th>
+            <td colspan="5"><p><i><strong>{{ $message }}</strong></i></p></td>
         </tr>
-
-        @foreach($pegawai as $p)
+    @elseif ($message = Session::get('edit'))
         <tr>
-            <td>{{ $p->pegawai_nama }}</td>
-            <td>{{ $p->pegawai_jabatan }}</td>
-            <td>{{ $p->pegawai_umur }}</td>
-            <td>{{ $p->pegawai_alamat }}</td>
-            <td>
-                <a href="/pegawai/edit/{{ $p->pegawai_id }}">Edit</a>
-                |
-                <a href="/pegawai/hapus/{{ $p->pegawai_id }}">Hapus</a>
-            </td>
+            <td colspan="5"><p><i><strong>{{ $message }}</strong></i></p></td>
         </tr>
-        @endforeach
-    </table>
+    @elseif ($message = Session::get('hapus'))
+        <tr>
+            <td colspan="5"><p><i><strong>{{ $message }}</strong></i></p></td>
+        </tr>
+    @endif
 
-</body>
 
-</html>
+    <tr>
+        <th>Nama</th>
+        <th>Jabatan</th>
+        <th>Umur</th>
+        <th>Alamat</th>
+        <th>Opsi</th>
+    </tr>
+
+    @foreach($pegawai as $p)
+    <tr>
+        <td>{{ $p->pegawai_nama }}</td>
+        <td>{{ $p->pegawai_jabatan }}</td>
+        <td>{{ $p->pegawai_umur }}</td>
+        <td>{{ $p->pegawai_alamat }}</td>
+        <td>
+            <a href="/pegawai/edit/{{ $p->pegawai_id }}">Edit</a>
+            |
+            <a href="/pegawai/hapus/{{ $p->pegawai_id }}">Hapus</a>
+        </td>
+    </tr>
+    @endforeach
+</table>
+@endsection
